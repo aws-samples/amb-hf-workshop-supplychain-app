@@ -1,0 +1,66 @@
+{
+    "name": "amb-network",
+    "version": "1.0.0",
+    "license": "Apache-2.0",
+    "channels": {
+        "mainchannel": {
+            "orderers": ["%ORDERERNOPORT%"],
+            "peers": {
+                "%PEER1ENDPOINTNOPORT%": {}
+            },
+            "connection": {
+                "timeout": {
+                    "peer": {
+                        "endorser": "12000",
+                        "eventHub": "12000",
+                        "eventReg": "12000"
+                    }
+                }
+            }
+        }
+    },
+    "organizations": {
+        "%MEMBER_NAME%": {
+            "mspid": "%MEMBERID%",
+            "certificateAuthorities": ["ca-org1"],
+            "peers": ["%PEER1ENDPOINTNOPORT%"]
+        }
+    },
+    "peers": {
+        "%PEER1ENDPOINTNOPORT%": {
+            "tlsCACerts": {
+                "path": "managedblockchain-tls-chain.pem"
+            },
+            "url": "grpcs://%PEER1ENDPOINT%",
+            "eventUrl": "grpcs://%PEER1EVENTENDPOINT%",
+            "grpcOptions": {
+                "ssl-target-name-override": "%PEER1ENDPOINTNOPORT%",
+                "discovery-as-localhost": "false"
+            }
+        }
+    },
+    "orderers": {
+        "%ORDERERNOPORT%": {
+            "tlsCACerts": {
+                "path": "managedblockchain-tls-chain.pem"
+            },
+            "url": "grpcs://%ORDERER%",
+            "grpcOptions": {
+                "ssl-target-name-override": "%ORDERERNOPORT%",
+                "discovery-as-localhost": "false"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca-org1": {
+            "url": "https://%CASERVICEENDPOINT%",
+            "httpOptions": {
+                "verify": false
+            },
+            "tlsCACerts": {
+                "path": "managedblockchain-tls-chain.pem"
+            },
+            "caName": "%MEMBERID%"
+        }
+    }
+}

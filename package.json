@@ -1,0 +1,32 @@
+{
+    "name": "amb-hf-workshop-supplychain-app",
+    "version": "0.1.0",
+    "bin": {
+        "amb-hf-workshop-supplychain-app": "bin/app.js"
+    },
+    "license": "MIT-0",
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc -w",
+        "test": "jest --verbose",
+        "cdk": "cdk",
+        "prepare": "husky install"
+    },
+    "devDependencies": {
+        "@types/jest": "^27.5.2",
+        "@types/node": "^10.17.27",
+        "@types/prettier": "2.6.0",
+        "aws-cdk": "2.52.0",
+        "husky": "^8.0.2",
+        "jest": "^27.5.1",
+        "ts-jest": "^27.1.5",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.9.3"
+    },
+    "dependencies": {
+        "aws-cdk-lib": "2.52.0",
+        "@aws-cdk/aws-appsync-alpha": "^2.52.0-alpha.0",
+        "cdk-nag": "^2.21.5",
+        "constructs": "^10.1.163"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "name": "fabric-network-layer",
+    "version": "1.0.0",
+    "description": "NodeJS lts/gallium layer with aws-sdk, fabric@2.2, and loglevel",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "engines": {
+        "npm": ">=8.0.0 <9.0.0",
+        "node": ">=16.0.0 <17.0.0"
+    },
+    "author": "Forrest Colyer, Aldred Halim",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@aws-sdk/client-secrets-manager": "^3.213.0",
+        "fabric-network": "^2.2.15",
+        "loglevel": "^1.8.1"
+    }
+}

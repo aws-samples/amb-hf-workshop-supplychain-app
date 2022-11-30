@@ -1,0 +1,37 @@
+type Mutation {
+    createProduct(id: ID!): Product @aws_auth(cognito_groups: ["default"])
+    updateProductState(id: ID!, transition: String!): Product @aws_auth(cognito_groups: ["default"])
+}
+
+type Product {
+    id: ID!
+    state: String!
+    history: ProductHistory!
+}
+
+type ProductHistory {
+    manufactured: String!
+    inspected: String
+    shipped: String
+    stocked: String
+    labeled: String
+    sold: String
+}
+
+type Query {
+    product(id: ID!): Product @aws_auth(cognito_groups: ["default"])
+    products: [Product] @aws_auth(cognito_groups: ["default"])
+}
+
+type Subscription {
+    createdProduct: Product @aws_subscribe(mutations: ["createProduct"]) @aws_auth(cognito_groups: ["default"])
+    updatedProductState: Product
+        @aws_subscribe(mutations: ["updateProductState"])
+        @aws_auth(cognito_groups: ["default"])
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+    subscription: Subscription
+}
