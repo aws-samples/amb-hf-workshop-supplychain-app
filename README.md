@@ -19,7 +19,7 @@ nvm alias default lts/gallium
 The AWS CDK includes the CDK Toolkit (also called the CLI), a command line tool for working with your AWS CDK apps and stacks. Install the CDK toolkit
 
 ```bash
-npm install -g aws-cdk@2.52.0
+npm install -g aws-cdk@2.55.1
 cdk --version
 ```
 
