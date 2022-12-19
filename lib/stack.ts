@@ -11,7 +11,7 @@ import { InterfaceVpcEndpointAwsService, InterfaceVpcEndpoint } from "aws-cdk-li
 import { Secret } from "aws-cdk-lib/aws-secretsmanager";
 import { Function } from "aws-cdk-lib/aws-lambda";
 import { Runtime, LayerVersion, Code, Architecture } from "aws-cdk-lib/aws-lambda";
-import { GraphqlApi, Schema, AuthorizationType, FieldLogLevel, Resolver } from "@aws-cdk/aws-appsync-alpha";
+import { GraphqlApi, SchemaFile, AuthorizationType, FieldLogLevel, Resolver } from "@aws-cdk/aws-appsync-alpha";
 import { join } from "path";
 import { NagSuppressions } from "cdk-nag";
 
@@ -187,7 +187,7 @@ export class SupplyChainAppStack extends Stack {
         //**********AppSync******************************
         const api = new GraphqlApi(this, "API", {
             name: "AMBSupplyChainAPI",
-            schema: Schema.fromAsset(join(__dirname, "appsync", "schema.graphql")),
+            schema: SchemaFile.fromAsset(join(__dirname, "appsync", "schema.graphql")),
             authorizationConfig: {
                 defaultAuthorization: {
                     authorizationType: AuthorizationType.USER_POOL,
