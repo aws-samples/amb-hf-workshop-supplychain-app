@@ -13,7 +13,7 @@
     "author": "Forrest Colyer, Aldred Halim",
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws-sdk/client-secrets-manager": "^3.213.0",
+        "@aws-sdk/client-secrets-manager": "^3.350.0",
         "fabric-network": "^2.2.15",
         "loglevel": "^1.8.1"
     }
